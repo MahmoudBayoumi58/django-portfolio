@@ -1,0 +1,98 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load custom_filter %}
+{% block title %}
+    Resume
+{% endblock %}
+
+{% block content %}
+    <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>Resume</h1>
+              <p class="mb-0">{{info.bio}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="{% url 'home_view' %}">Home</a></li>
+            <li class="current">Resume</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Summary</h3>
+
+            <div class="resume-item pb-0">
+              <h4>{{info.name}}</h4>
+              <p><em>{{info.summary}}</em></p>
+              <ul>
+                <li>{{info.address}}</li>
+                <li>{{info.phone}}</li>
+                <li>{{info.email}}</li>
+              </ul>
+            </div><!-- Edn Resume Item -->
+
+            <h3 class="resume-title">Education</h3>
+            {% for education in educations %}
+              <div class="resume-item">
+                <h4>{{education.degree}} of {{education.field_of_study}}</h4>
+                <h5>{{education.start_date|date:'Y'}} - {{education.end_date|date:'Y'}}</h5>
+                <p><em>{{education.institution_name}}</em></p>
+                <p>Grade: {{education.grade}}</p>
+              </div><!-- Edn Resume Item -->
+            {% endfor %}
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">Professional Experience</h3>
+            {% for experience in experiences %}
+              <div class="resume-item">
+                <h4>{{experience.title}}</h4>
+                <h5>
+                  {{experience.start_date|date:'F Y'}} -
+                  {% if experience.end_date %}
+                    {{experience.end_date|date:'F Y'}}
+                  {% else %}
+                    Present
+                  {% endif %}
+                </h5>
+                <p><em>{{experience.location}}</em></p>
+                <ul>
+                  {% with experience.description|split_lines:'.' as descs %}
+                    {% for desc in descs %}
+                        {% if desc %}
+                          <li>{{desc}}</li>
+                        {% endif %}
+                    {% endfor %}
+                  {% endwith %}
+                </ul>
+              </div><!-- Edn Resume Item -->
+            {% endfor %}
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Resume Section -->
+
+  </main>
+{% endblock %}
