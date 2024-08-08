@@ -33,7 +33,7 @@ class PersonalInfo(models.Model):
     bio = models.TextField(null=True, blank=True)
     summary = models.TextField()
     position_title = models.CharField(max_length=64)
-    cv = models.FileField(upload_to='resumes/', null=True, blank=True)
+    # cv = models.FileField(upload_to='resumes/', null=True, blank=True)
     github = models.URLField(null=True, blank=True)
     linkedin = models.URLField(null=True, blank=True)
     instagram = models.URLField(null=True, blank=True)
