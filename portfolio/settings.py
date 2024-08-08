@@ -82,20 +82,20 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-if DEBUG:
-    DATABASES['default'] = {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-    }
-else:
-    DATABASES['default'] = dj_database_url.config(
-        conn_max_age=600,
-        conn_health_checks=True,
-        ssl_require=True
-    )
-    DATABASES['default'] = dj_database_url.config(
-        default=config('DATABASE_URL'),
-    )
+# if DEBUG:
+DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+}
+# else:
+#     DATABASES['default'] = dj_database_url.config(
+#         conn_max_age=600,
+#         conn_health_checks=True,
+#         ssl_require=True
+#     )
+#     DATABASES['default'] = dj_database_url.config(
+#         default=config('DATABASE_URL'),
+#     )
 
 
 # Password validation
@@ -136,7 +136,7 @@ STATIC_URL = 'static/'
 
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+    WHITENOISE_USE_FINDERS = True
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = 'media/'
