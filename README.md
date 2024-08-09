@@ -11,10 +11,12 @@ The **Django Portfolio** project is a personal portfolio website developed using
 
 ### Features
 
-- **Home Page**: Displays an introduction and provides navigation links to other sections of the website.
-- **Projects Page**: Showcases a list of projects with details dynamically rendered from the database.
-- **Skills Section**: Lists the technical skills dynamically populated from the database.
-- **Contact Page**: Includes a contact form that allows users to send messages directly from the website.
+- **Home Page:** Displays your name, job title, and provides navigation links to other sections of the website.
+- **About Page:** Showcases detailed information about you, including your skills and certifications.
+- **Resume Page:** Presents your professional experience and qualifications through a comprehensive resume.
+- **Service Page:** Outlines the services you offer, highlighting how you can provide value to clients or employers.
+- **Portfolio Page:** Lists your portfolio projects, showcasing the applications you have developed.
+- **Contact Page:** Contains your contact information, allowing potential clients or employers to reach out to you easily.
 
 ### Technologies Used
 
