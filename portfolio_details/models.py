@@ -29,7 +29,7 @@ class PersonalInfo(models.Model):
     email = models.EmailField()
     address = models.CharField(max_length=255)
     phone = models.CharField(max_length=15)
-    image = models.ImageField(upload_to='profile/', default='hero-bg.jpg')
+    image = models.ImageField(upload_to='profile/', null=True, blank=True)
     bio = models.TextField(null=True, blank=True)
     summary = models.TextField()
     position_title = models.CharField(max_length=64)
