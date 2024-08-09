@@ -134,7 +134,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-if config('HOST', None) == 'vercel':
+if config('CLOUDINARY_STORAGE', default=False, cast=bool):
     INSTALLED_APPS += [
         'cloudinary_storage',
         'cloudinary',
